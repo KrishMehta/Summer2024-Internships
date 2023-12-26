@@ -34,14 +34,20 @@ public class InternshipReader {
         String title = jsonObject.getString("title");
         List<String> locations = new ArrayList<>();
         JSONArray locationsArray = jsonObject.getJSONArray("locations");
-        for (int j = 0; j < locationsArray.length(); j++) {
-            locations.add(locationsArray.getString(j));
+        for (int i = 0; i < locationsArray.length(); i++) {
+            locations.add(locationsArray.getString(i));
         }
         String url = jsonObject.getString("url");
         String companyURL = jsonObject.getString("company_url");
+        List<String> terms = new ArrayList<>();
+        JSONArray termsArray = jsonObject.getJSONArray("terms");
+        for (int i = 0; i < termsArray.length(); i++) {
+            terms.add(termsArray.getString(i));
+        }
         boolean active = jsonObject.getBoolean("active");
         boolean visible = jsonObject.getBoolean("is_visible");
-        return new Internship(company, title, locations, url, companyURL, active, visible);
+        String sponsorship = jsonObject.getString("sponsorship");
+        return new Internship(company, title, locations, url, companyURL, terms, active, visible, sponsorship);
     }
 
 }

@@ -7,5 +7,5 @@ import java.util.List;
  */
 
 public record Internship(String company, String title, List<String> locations, String url, String companyURL,
-                         boolean active, boolean visible) {
+                         List<String> terms, boolean active, boolean visible, String sponsorship) {
 }
