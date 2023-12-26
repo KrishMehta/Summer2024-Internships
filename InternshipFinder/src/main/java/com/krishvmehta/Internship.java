@@ -11,12 +11,12 @@ public record Internship(String company, String title, List<String> locations, S
 
     @Override
     public String toString() {
-        return "Internship{" +
-                "company='" + company + '\'' +
-                ", title='" + title + '\'' +
-                ", locations=" + locations +
-                ", url='" + url + '\'' +
-                ", companyURL='" + companyURL + '\'' +
-                '}';
+        return "Internship: " + System.lineSeparator() +
+                "- Company: " + company + System.lineSeparator() +
+                "- Title: " + title + System.lineSeparator() +
+                "- Locations: " + locations + System.lineSeparator() +
+                "- URL: " + url + System.lineSeparator() +
+                "- Company URL: " + companyURL + System.lineSeparator() +
+                System.lineSeparator();
     }
 }
