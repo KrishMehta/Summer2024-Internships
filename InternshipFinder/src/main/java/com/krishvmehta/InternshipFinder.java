@@ -18,6 +18,9 @@ public class InternshipFinder {
         internships = internshipReader.parseJSONFile();
         internships = internshipFilterer.filterInternships(internships);
 
+        // optionally sort internships by date updated
+        // internships = internshipFilterer.sortInternships(internships);
+
         internships.forEach(System.out::println);
     }
 
