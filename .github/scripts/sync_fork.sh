@@ -3,7 +3,9 @@
 UPSTREAM_REPO="https://github.com/SimplifyJobs/Summer2024-Internships"
 BRANCH="dev"
 
-git remote add upstream $UPSTREAM_REPO
+if ! git remote | grep -q upstream; then
+    git remote add upstream $UPSTREAM_REPO
+fi
 
 git fetch upstream
 
