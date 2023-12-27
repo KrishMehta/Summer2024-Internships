@@ -7,6 +7,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,10 +47,14 @@ public class InternshipReader {
         for (int i = 0; i < termsArray.length(); i++) {
             terms.add(termsArray.getString(i));
         }
+        long datePostedLong = jsonObject.getLong("date_posted");
+        long dateUpdatedLong = jsonObject.getLong("date_updated");
+        LocalDateTime datePosted = Instant.ofEpochSecond(datePostedLong).atZone(ZoneId.systemDefault()).toLocalDateTime();
+        LocalDateTime dateUpdated = Instant.ofEpochSecond(dateUpdatedLong).atZone(ZoneId.systemDefault()).toLocalDateTime();
         boolean active = jsonObject.getBoolean("active");
         boolean visible = jsonObject.getBoolean("is_visible");
         String sponsorship = jsonObject.getString("sponsorship");
-        return new Internship(company, title, locations, url, companyURL, terms, active, visible, sponsorship);
+        return new Internship(company, title, locations, url, companyURL, terms, datePosted, dateUpdated, active, visible, sponsorship);
     }
 
 }
