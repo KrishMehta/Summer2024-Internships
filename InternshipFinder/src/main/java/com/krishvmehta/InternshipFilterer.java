@@ -16,7 +16,6 @@ public class InternshipFilterer {
                 .filter(internship -> internship.title().contains("Intern"))
                 .filter(internship -> internship.title().contains("Software Engineer"))
                 .filter(internship -> internship.terms().contains("Summer 2024"))
-                .filter(internship -> internship.sponsorship().equals("Offers Sponsorship"))
                 .toList();
     }
 
