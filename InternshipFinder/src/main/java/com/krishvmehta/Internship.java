@@ -1,6 +1,7 @@
 package com.krishvmehta;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 /**
@@ -19,6 +20,7 @@ public record Internship(String company, String title, List<String> locations, S
                 "- Locations: " + locations + System.lineSeparator() +
                 "- URL: " + url + System.lineSeparator() +
                 "- Company URL: " + companyURL + System.lineSeparator() +
+                "- Date Posted: " + datePosted.format(DateTimeFormatter.ISO_DATE) + System.lineSeparator() +
                 System.lineSeparator();
     }
 }
